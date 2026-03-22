@@ -112,8 +112,8 @@ int main(int argc, char* argv[]) {
     std::string art = ASCIIArt::getArt(distro_to_display);
     std::vector<std::string> art_lines = getArtLines(art);
     
-    // Вычисляем максимальную длину ASCII арта
-    int art_width = getMaxArtLineLength(art_lines) + 2;  // +2 для небольших отступа
+    // Используем фиксированную ширину для всех логотипов (45 символов)
+    int art_width = 45;
     
     // Display output
     std::cout << std::endl;
