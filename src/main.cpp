@@ -13,6 +13,8 @@ const std::string RESET = "\033[0m";
 const std::string GREEN = "\033[32m";
 const std::string RED = "\033[31m";
 const std::string WHITE = "\033[37m";
+const std::string BOLD = "\033[1m";
+const std::string BOLD_RED = "\033[1;31m";
 
 std::vector<std::string> getArtLines(const std::string& art) {
     std::vector<std::string> lines;
@@ -156,14 +158,14 @@ int main(int argc, char* argv[]) {
             printf("%-*s", art_width, "");
         }
         
-        // Print system info with red labels and white/green values
+        // Print system info with bold red labels and white/green values
         if (i < info_items.size()) {
             const auto& item = info_items[i];
             
-            // Лейбел красный, потом выравнивание пробелами белым, двоеточие белым, значение белым
+            // Лейбел жирный красный, потом выравнивание пробелами белым, двоеточие белым, значение белым
             std::string formatted = formatValue(item.second);
             printf("%s%s%s%*s: %s%s\n", 
-                   RED.c_str(), 
+                   BOLD_RED.c_str(), 
                    item.first.c_str(), 
                    WHITE.c_str(),
                    (int)(14 - item.first.length()), 

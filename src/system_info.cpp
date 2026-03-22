@@ -349,15 +349,33 @@ std::string SystemInfoGatherer::getDisplay() {
         // Parse: "HDMI-1 connected primary 1920x1080+0+0 (normal left inverted right x axis y axis) 510mm x 287mm"
         // We want: 1920x1080 @ 60 Hz (example)
         
-        // Extract resolution
+        // Extract resolution without position offsets (+0+0)
         size_t res_pos = output.find(" ");
         if (res_pos != std::string::npos) {
             // Find the resolution part (1920x1080)
             size_t start = output.find_first_of("0123456789", res_pos);
             if (start != std::string::npos) {
-                size_t end = output.find(" ", start);
-                if (end != std::string::npos) {
+                // Find the end of resolution (format: 1920x1080+0+0)
+                size_t end = start;
+                while (end < output.length() && 
+                       (isdigit(output[end]) || output[end] == 'x')) {
+                    end++;
+                }
+                
+                // Skip the +0+0 part
+                if (end < output.length() && output[end] == '+') {
+                    while (end < output.length() && output[end] != ' ') {
+                        end++;
+                    }
+                }
+                
+                if (end > start) {
                     std::string res = output.substr(start, end - start);
+                    // Remove any trailing +0+0 if still there
+                    size_t plus_pos = res.find('+');
+                    if (plus_pos != std::string::npos) {
+                        res = res.substr(0, plus_pos);
+                    }
                     
                     // Get refresh rate from xrandr
                     std::string rate_output = executeCommand("xrandr --query 2>/dev/null | grep -oP '\\d+\\.\\d+\\*' | head -1");
