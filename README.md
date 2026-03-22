@@ -95,7 +95,6 @@ speedfetch/
 - Manjaro
 - openSUSE
 - CentOS
-- Elementary OS
 - Pop!_OS
 - И другие Linux системы
 
