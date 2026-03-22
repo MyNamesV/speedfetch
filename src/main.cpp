@@ -162,14 +162,12 @@ int main(int argc, char* argv[]) {
         if (i < info_items.size()) {
             const auto& item = info_items[i];
             
-            // Лейбел жирный красный, потом выравнивание пробелами белым, двоеточие белым, значение белым
+            // Лейбел жирный красный, двоеточие белый, значение белый
             std::string formatted = formatValue(item.second);
-            printf("%s%s%s%*s: %s%s\n", 
+            printf("%s%s%s: %s%s\n", 
                    BOLD_RED.c_str(), 
                    item.first.c_str(), 
                    WHITE.c_str(),
-                   (int)(14 - item.first.length()), 
-                   "", 
                    formatted.c_str(), 
                    RESET.c_str());
         } else {
