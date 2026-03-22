@@ -71,12 +71,43 @@ std::string formatValue(const std::string& value) {
     return result;
 }
 
-int main() {
+int main(int argc, char* argv[]) {
     // Get system information
     SystemInfo info = SystemInfoGatherer::gather();
     
+    // Parse command line arguments
+    std::string distro_to_display = info.distro;
+    
+    for (int i = 1; i < argc; ++i) {
+        std::string arg = argv[i];
+        
+        // Check for --logo-<distro> flag
+        if (arg.find("--logo-") == 0) {
+            distro_to_display = arg.substr(7);  // Remove "--logo-" prefix
+        }
+        // Help flag
+        else if (arg == "--help" || arg == "-h") {
+            std::cout << "speedfetch - Linux system information fetcher\n\n";
+            std::cout << "Usage: speedfetch [OPTION]\n\n";
+            std::cout << "Options:\n";
+            std::cout << "  --logo-ubuntu           Display Ubuntu ASCII logo\n";
+            std::cout << "  --logo-fedora           Display Fedora ASCII logo\n";
+            std::cout << "  --logo-debian           Display Debian ASCII logo\n";
+            std::cout << "  --logo-arch             Display Arch Linux ASCII logo\n";
+            std::cout << "  --logo-manjaro          Display Manjaro ASCII logo\n";
+            std::cout << "  --logo-opensuse         Display openSUSE ASCII logo\n";
+            std::cout << "  --logo-centos           Display CentOS ASCII logo\n";
+            std::cout << "  --logo-elementary       Display Elementary ASCII logo\n";
+            std::cout << "  --logo-pop-os           Display Pop!_OS ASCII logo\n";
+            std::cout << "  --logo-ubuntu-budgie    Display Ubuntu Budgie ASCII logo\n";
+            std::cout << "  --logo-tux              Display Tux ASCII logo\n";
+            std::cout << "  --help, -h              Show this help message\n";
+            return 0;
+        }
+    }
+    
     // Get ASCII art for the distro
-    std::string art = ASCIIArt::getArt(info.distro);
+    std::string art = ASCIIArt::getArt(distro_to_display);
     std::vector<std::string> art_lines = getArtLines(art);
     
     // Вычисляем максимальную длину ASCII арта
