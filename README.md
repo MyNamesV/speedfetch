@@ -110,4 +110,4 @@ MIT License
 
 ---
 
-**Автор:** Created with ❤️ for Linux fans
+**Автор:** MyNameIsV
