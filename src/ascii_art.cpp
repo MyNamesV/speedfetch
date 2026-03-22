@@ -3,8 +3,8 @@
 
 const std::map<std::string, std::string> ASCIIArt::arts = {
     {"ubuntu", R"(
-                MMMMM   MMMMMM       
-           MMMMMMMMM  MMMMMMMMMM     
+                00000   MMMMMM       
+           0MMMMMMMM  MMMMMMMMMM     
          MMMMMMMMMMM  MMMMMMMMMM     
        MMMMMM         MMMMMMMMMM     
      MMMMMM            MMMMMMMM      
@@ -49,93 +49,169 @@ MMMMMMMMMM                       MMMM
     
     {"debian", R"(
                                            
-             00000000000             
-          0000000000000000000        
-         0000            00000       
-       0000                0000O     
-      000                   0000     
-     000         00    0     00      
-     00         0            00      
-     00        0             00      
-     00        0        O    000     
-     00         0    O0     0        
-     00        0 00       00         
-     00           0000000            
-      000                            
-       000                           
-        00                           
-         000                         
-           000                       
-              00                     
+             ddddddddddddd             
+          ddddddddddddddddddd        
+         dddd            ddddd       
+       dddd                ddddd     
+      ddd                   dddd     
+     ddd         dd    d     dd      
+     dd         d            dd      
+     dd        d             dd      
+     dd        d        d    ddd     
+     dd         d    dd     d        
+     dd        d dd       dd         
+     dd           ddddddd            
+      ddd                            
+       ddd                           
+        dd                           
+         dddd                         
+           ddd                       
+              dd                     
                                      
 )"},
     
     {"arch", R"(
-        /\\
-       /  \\
-      /    \\
-     /      \\
-    /   ||   \\
-   /____||____\\)"},
+                  A                  
+                 AAA                 
+                 AAA                 
+                AAAAA                
+               AAAAAAA               
+               AAAAAAAA              
+                AAAAAAAA             
+            AAAAAAAAAAAAA            
+            AAAAAAAAAAAAA            
+           AAAAAAAAAAAAAAA           
+          AAAAAAAAAAAAAAAAA          
+         AAAAAAAA   AAAAAAAA         
+        AAAAAAA       AAAAAAA        
+       AAAAAAA         AAAAAAA       
+      AAAAAAAA         AAAAA         
+     AAAAAAAAA         AAAAAAAA      
+    AAAAAAAAAA         AAAAAAAAAA    
+   AAAAAA                   AAAAAA   
+  AAA                           AAAA 
+AA                                 AA
+)"},
     
     {"manjaro", R"(
-      |||||||||
-      |||||||||
-      ||     ||
-      ||  M  ||
-      ||     ||
-      |||||||||
-      |||||||||)"},
+QQQQQQQQQQQQQQQQQQQQQQQQ  QQQQQQQQQQQ
+QQQQQQQQQQQQQQQQQQQQQQQQ  QQQQQQQQQQQ
+QQQQQQQQQQQQQQQQQQQQQQQQ  QQQQQQQQQQQ
+QQQQQQQQQQQQQQQQQQQQQQQQ  QQQQQQQQQQQ
+QQQQQQQQQQQQQQQQQQQQQQQQ  QQQQQQQQQQQ
+QQQQQQQQQQQQQQQQQQQQQQQQ  QQQQQQQQQQQ
+QQQQQQQQQQQ               QQQQQQQQQQQ
+QQQQQQQQQQQ  QQQQQQQQQQQ  QQQQQQQQQQQ
+QQQQQQQQQQQ  QQQQQQQQQQQ  QQQQQQQQQQQ
+QQQQQQQQQQQ  QQQQQQQQQQQ  QQQQQQQQQQQ
+QQQQQQQQQQQ  QQQQQQQQQQQ  QQQQQQQQQQQ
+QQQQQQQQQQQ  QQQQQQQQQQQ  QQQQQQQQQQQ
+QQQQQQQQQQQ  QQQQQQQQQQQ  QQQQQQQQQQQ
+QQQQQQQQQQQ  QQQQQQQQQQQ  QQQQQQQQQQQ
+QQQQQQQQQQQ  QQQQQQQQQQQ  QQQQQQQQQQQ
+QQQQQQQQQQQ  QQQQQQQQQQQ  QQQQQQQQQQQ
+QQQQQQQQQQQ  QQQQQQQQQQQ  QQQQQQQQQQQ
+QQQQQQQQQQQ  QQQQQQQQQQQ  QQQQQQQQQQQ
+QQQQQQQQQQQ  QQQQQQQQQQQ  QQQQQQQQQQQ
+QQQQQQQQQQQ  QQQQQQQQQQQ  QQQQQQQQQQQ
+)"},
     
     {"opensuse", R"(
-        /   \\
-       / SLE \\
-      /   /   \\
-     |   /  O  |
-     |  /       |
-      \\ \\     /
-       \\_____/)"},
+                                             
+              UUUUUUUUU              
+          UUUUUUUUUUUUUUUUU          
+        UUUUUUU       UUUUUUU        
+      UUUUU               UUUUU      
+     UUUU   RQQQQQ          UUUU     
+    UUUUUUUQUUUUUUUUUQQQ      UUU    
+   UUUUUUUUUUUUUUUU      UQ   XUUU   
+   UUUUUUUUUUUUUUU  UU  Q UQ   UUUU  
+  UUUUUUUUUUUUUUUU UUQQQU UU   TUUU  
+  UUUUUUUUUUUU UUUQ  UU  QUUU   UUU  
+  AUUUUUUUUUUUQ    UQQQQUUUU   SUUC  
+   UUUUUUUUUUUUUSQQ        QQ  UUU   
+   AUUUUUUUUUUUUUUUUUTQQQUUT  QUUA   
+    AUUUUUUUUUUUUUUUUUU      QUUA    
+     AUUUQ                 QUUUA     
+      AAUUUQQ           SQUUUAA      
+        AAUUUUSQQQQQQQQUUUUAA        
+           AAAAUUUUUUUEAAA           
+                                     
+)"},
     
     {"centos", R"(
-        __
-       /  \\
-      | CentOS |
-      | _______ |
-        \\    /
-         \\__/)"},
-    
-    {"ubuntu-budgie", R"(
-           *
-          **
-         ***
-        ****
-       *****
-      *** ***
-     **     **
-    **       **)"},
-    
-    {"elementary", R"(
-        ___
-       /   \\
-      / /* \\\\
-     | [] (*) |
-      \\   _  /
-       \\_____/)"},
-    
+                                                 
+                 ..                  
+                .===.                
+              .=======.              
+     .======.====.=.####.######:     
+     .====.======.=.######.####:     
+     .==:==.-====.=.####+.##:##:     
+     .-.==.==.===.=.###.##.##.+:     
+     .======.==.=.=.#.##.*#####.     
+   .#-=======::==.=.##::#######=%.   
+ .###=:::::::::.:: ::.:::::::::=%%%. 
+ .###-:::::::::.:. .:.:::::::::=%%%. 
+   .#-%%%%%%%:-%%.=.==::========%.   
+     .%%%%%#.%%.%.=.=.==.-=====.     
+     .*.%%.%%.%%%.=.===.==.==.-:     
+     .%%:%%.*%%%%.=.====-.==:==:     
+     .%%%%.%%%%%%.=.======.====:     
+     .%%%%%%.%%%%.=.====.======:     
+              .=======.              
+                .===.                
+                  .                  
+   
+)"},
+
     {"pop-os", R"(
-        /\\  pop!_
-       /  \\  /
-      /    \\/
-     /    /\\
-    /____/  \\)"},
+             AAAAAAAAAAA             
+         AAAAAAAAAAAAAAAAAAA         
+      AAAAAAAAA AAAAAAAAAAAAAAA      
+    AAAAAA         AAAAAAAAAAAAAA    
+   AAAAA     A       AAAAAAAAAAAAA   
+  AAAAAA     AAA     AAAAAAAAAAAAAA  
+ AAAAAAA     AAAA    AAAA   AAAAAAAA 
+AAAAAAAAA     AAA    AAA     AAAAAAA 
+AAAAAAAAAA          AAAA    AAAAAAAAA
+AAAAAAAAAAA       AAAAAA   AAAAAAAAAA
+AAAAAAAAAAAA     AAAAAA   AAAAAAAAAAA
+AAAAAAAAAAAAA    AAAAAA  AAAAAAAAAAAA
+AAAAAAAAAAAAAA    AAAAAAAAAAAAAAAAAAA
+ AAAAAAAAAAAAAA   AAAA  AAAAAAAAAAAA 
+  AAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAA  
+   AAAAAA                   AAAAAA   
+    AAAAA                   AAAAA    
+      AAAAAAAAAAAAAAAAAAAAAAAAA      
+         AAAAAAAAAAAAAAAAAAA         
+            AAAAAAAAAAAAA            
+)"},
     
     {"tux", R"(
-        _____
-       /     \\
-      | Linux |
-       \\_____/
-        |   |
-        |   |)"}
+               AAAAAAA               
+             AAAAAAAAAAA             
+            AAAAAAAAAAAAA            
+            AAAAAAAAAAAAA            
+            A A AA AA AAA            
+            AAAAAAAAA AAAA           
+            AAAAAAAAAAAAAA           
+             AAAAAAAAAAAAAA          
+            A  AAAA    AAAAA         
+          AA            AAAAA        
+         AA              AAAAAA      
+        AAA               AAAAAA     
+       AAA                 AAAAA     
+      AAA                  AAAAAA    
+     AAAA                  AAAAAA    
+     AAAA                  AAAAAA    
+     AAAAA               AAAAAAAA    
+ AAAAAAAAAAA             AAAAAAAAA   
+ AAAAAAAAAAAAA           AAAAAAAAAA  
+ AAAAAAAAAAA           AAAAAAAAAAAAAA
+AAAAAAAAAAAAAAA     AAAAAAAAAAAAAAA  
+ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA     
+        AAAAA            AAAAA       
+)"}
 };
 
 std::string ASCIIArt::getDistroType(const std::string& distro_name) {
