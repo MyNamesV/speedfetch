@@ -1,13 +1,12 @@
-# 🚀 SpeedFetch - System Information Fetcher
+# SpeedFetch - System Information Fetcher
 
 Минималистичная и быстрая программа на C++ для вывода информации о вашей Linux системе с красивым ASCII артом дистрибутива.
 
 ## 📋 Возможности
 
-✅ Быстрый вывод информации о системе  
-✅ Поддержка основных Linux дистрибутивов (Ubuntu, Fedora, Debian, Arch, Manjaro, openSUSE и др.)  
-✅ Красивый ASCII арт для каждого дистрибутива  
-✅ Информация о:
+- Быстрый вывод информации о системе  
+- Поддержка основных Linux дистрибутивов (Ubuntu, Fedora, Debian, Arch, Manjaro, openSUSE и др.)  
+- Красивый ASCII арт для каждого дистрибутива  
 - Пользователе и hostname
 - Операционной системе
 - Версии ядра
