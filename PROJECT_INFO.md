@@ -8,8 +8,8 @@
 
 | Feature | SpeedFetch | Neofetch | Fastfetch |
 |---------|-----------|----------|-----------|
-| Speed | ⚡ Lightning fast | Slow | Fast |
-| Size | 🎯 < 200KB | Medium | Medium |
+| Speed |  Lightning fast | Slow | Fast |
+| Size |  < 200KB | Medium | Medium |
 | Language | C++ | Bash | C |
 | Minimal dependencies | ✅ Yes | ❌ No | ✅ Yes |
 | ASCII arts | ✅ Yes | ✅ Yes | ✅ Yes |
@@ -17,11 +17,10 @@
 ## What is it for?
 
 SpeedFetch is ideal for:
-- 📊 Quick system information overview
-- 🎨 Beautiful terminal output (convenient for screenshots)
-- 🚀 Embedding in other applications
-- 📝 Output to logs and reports
-- 🎓 Learning C++ programming
+- Quick system information overview
+- Beautiful terminal output (convenient for screenshots)
+- Embedding in other applications
+- Output to logs and reports
 
 ## Technical Specifications
 
@@ -36,28 +35,26 @@ SpeedFetch is ideal for:
 
 SpeedFetch collects the following system data:
 
-1. **👤 User@Host** - Current user and computer name
-2. **🐧 OS** - Linux distribution
-3. **🔧 Kernel** - System kernel version
-4. **⚙️ CPU** - Processor model
-5. **🧠 RAM** - Used/Total RAM
-6. **💾 Disk** - Used/Total disk space
-7. **⏱️ Uptime** - System uptime
-8. **🐚 Shell** - Current shell environment
-9. **🖥️ Terminal** - Terminal emulator
+1. **User@Host** - Current user and computer name
+2. **OS** - Linux distribution
+3. **Kernel** - System kernel version
+4. **CPU** - Processor model
+5. **RAM** - Used/Total RAM
+6. **Disk** - Used/Total disk space
+7. **Uptime** - System uptime
+8. **Shell** - Current shell environment
+9. **Terminal** - Terminal emulator
 
 ## Supported Distributions
 
-- ✅ Ubuntu (all variants)
-- ✅ Fedora
-- ✅ Debian
-- ✅ Arch Linux
-- ✅ Manjaro
-- ✅ openSUSE
-- ✅ CentOS
-- ✅ Elementary OS
-- ✅ Pop!_OS
-- ✅ And other Linux systems
+- Ubuntu
+- Fedora
+- Debian
+- Arch Linux
+- Manjaro
+- openSUSE
+- CentOS
+- Pop!_OS
 
 ## Project Files
 
@@ -96,9 +93,9 @@ speedfetch > system_info.txt
 
 ## Author and License
 
-**Author:** Created with ❤️ for Linux enthusiasts
+**Author:** MyNameIsV
 
-**License:** MIT License
+**License:** GPL License
 
 **Status:** Active development 🚀
 

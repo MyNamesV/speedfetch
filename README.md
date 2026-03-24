@@ -96,7 +96,6 @@ speedfetch/
 - openSUSE
 - CentOS
 - Pop!_OS
-- And other Linux systems
 
 ## About the program
 
