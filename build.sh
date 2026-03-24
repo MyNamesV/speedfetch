@@ -33,6 +33,6 @@ if [ $? -eq 0 ]; then
     echo "  sudo cp ./speedfetch /usr/local/bin/"
     echo ""
 else
-    echo "❌ Build failed!"
+    echo "Build failed!"
     exit 1
 fi

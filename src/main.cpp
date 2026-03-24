@@ -1,5 +1,6 @@
 #include "system_info.h"
 #include "ascii_art.h"
+#include "config.h"
 #include <iostream>
 #include <cstdio>
 #include <sstream>
@@ -74,6 +75,9 @@ std::string formatValue(const std::string& value) {
 }
 
 int main(int argc, char* argv[]) {
+    // Load configuration
+    Config::load();
+    
     // Get system information
     SystemInfo info = SystemInfoGatherer::gather();
     
@@ -119,7 +123,7 @@ int main(int argc, char* argv[]) {
     std::cout << std::endl;
     
     // Prepare info items
-    std::vector<std::pair<std::string, std::string>> info_items = {
+    std::vector<std::pair<std::string, std::string>> all_items = {
         {"User", info.user + "@" + info.host},
         {"OS", info.distro},
         {"Host", info.host},
@@ -145,6 +149,51 @@ int main(int argc, char* argv[]) {
         {"Local IP", info.ip_address},
         {"Locale", info.locale}
     };
+    
+    // Filter items based on config
+    std::vector<std::pair<std::string, std::string>> info_items;
+    std::vector<std::pair<std::string, std::string>> config_map = {
+        {"User", "user"},
+        {"OS", "os"},
+        {"Host", "host"},
+        {"Kernel", "kernel"},
+        {"Uptime", "uptime"},
+        {"Packages", "packages"},
+        {"Shell", "shell"},
+        {"Display", "display"},
+        {"DE", "de"},
+        {"WM", "wm"},
+        {"WM Theme", "wm_theme"},
+        {"Theme", "theme"},
+        {"Icons", "icons"},
+        {"Font", "font"},
+        {"Cursor", "cursor"},
+        {"Terminal", "terminal"},
+        {"Terminal Font", "terminal_font"},
+        {"CPU", "cpu"},
+        {"GPU", "gpu"},
+        {"Memory", "memory"},
+        {"Swap", "swap"},
+        {"Disk (/)", "disk"},
+        {"Local IP", "local_ip"},
+        {"Locale", "locale"}
+    };
+    
+    for (const auto& item : all_items) {
+        // Find config key for this item
+        std::string config_key = "";
+        for (const auto& mapping : config_map) {
+            if (mapping.first == item.first) {
+                config_key = mapping.second;
+                break;
+            }
+        }
+        
+        // Check if enabled in config
+        if (config_key.empty() || Config::isEnabled(config_key)) {
+            info_items.push_back(item);
+        }
+    }
     
     // Print art and info side by side
     size_t max_lines = std::max(art_lines.size(), info_items.size());
