@@ -1,8 +1,8 @@
-# 📚 SpeedFetch Usage Guide
+# SpeedFetch Usage Guide
 
 ## Quick Start
 
-### 1️⃣ First Build
+### First Build
 
 ```bash
 cd speedfetch
@@ -12,7 +12,7 @@ make build
 ./build.sh
 ```
 
-### 2️⃣ First Run
+### First Run
 
 ```bash
 # From build folder
@@ -22,7 +22,7 @@ make build
 make run
 ```
 
-### 3️⃣ System Installation (optional)
+### System Installation (optional)
 
 ```bash
 # Via make
@@ -63,11 +63,11 @@ speedfetch | xclip -selection clipboard  # Copy to clipboard
 
 ## Program Features
 
-✅ **Speed** - written in C++, starts instantly
-✅ **Minimal dependencies** - uses only standard Linux utilities
-✅ **Complete information** - collects main system parameters
-✅ **Beautiful output** - supports colors and terminal formatting
-✅ **Easy extensibility** - just add new ASCII art!
+**Speed** - written in C++, starts instantly
+**Minimal dependencies** - uses only standard Linux utilities
+**Complete information** - collects main system parameters
+**Beautiful output** - supports colors and terminal formatting
+**Easy extensibility** - just add new ASCII art!
 
 ## Troubleshooting
 
@@ -100,9 +100,9 @@ whoami               # Current user
 ## Performance
 
 SpeedFetch is a very fast program:
-- ⚡ Startup time: < 100ms
-- 💾 Memory usage: < 1MB
-- 🔧 No additional dependencies
+- Startup time: < 100ms
+- Memory usage: < 1MB
+- No additional dependencies
 
 ## License
 

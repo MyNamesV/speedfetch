@@ -2,7 +2,7 @@
 
 Minimalistic and fast C++ program for displaying your Linux system information with beautiful ASCII art of the distribution.
 
-## 📋 Features
+## Features
 
 - Fast system information output
 - Support for major Linux distributions (Ubuntu, Fedora, Debian, Arch, Manjaro, openSUSE, etc.)
