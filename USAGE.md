@@ -1,115 +1,115 @@
-# 📚 Руководство по использованию SpeedFetch
+# 📚 SpeedFetch Usage Guide
 
-## Быстрый старт
+## Quick Start
 
-### 1️⃣ Первая сборка
+### 1️⃣ First Build
 
 ```bash
 cd speedfetch
 make build
 
-# Или через скрипт
+# Or via script
 ./build.sh
 ```
 
-### 2️⃣ Первый запуск
+### 2️⃣ First Run
 
 ```bash
-# Из папки build
+# From build folder
 ./build/speedfetch
 
-# Или через make
+# Or via make
 make run
 ```
 
-### 3️⃣ Системная установка (опционально)
+### 3️⃣ System Installation (optional)
 
 ```bash
-# Через make
+# Via make
 make install
 
-# Или через скрипт
+# Or via script
 sudo ./install.sh
 ```
 
-## Примеры воспроизведения
+## Usage Examples
 
-После установки можно использовать в различных контекстах:
+After installation, you can use it in various contexts:
 
-### В .bash_profile или .bashrc
+### In .bash_profile or .bashrc
 
-Добавьте в конец файла:
+Add to the end of the file:
 ```bash
 echo "System Info:"
 speedfetch
 ```
 
-Теперь speedfetch будет показываться при открытии нового терминала.
+Now speedfetch will be displayed when opening a new terminal.
 
-### В скриптах
+### In scripts
 
 ```bash
 #!/bin/bash
 speedfetch > system_info.txt
 ```
 
-### Интеграция с другими приложениями
+### Integration with other applications
 
-SpeedFetch можно перенаправить в файл:
+SpeedFetch can be redirected to a file:
 ```bash
 speedfetch > report.txt
-speedfetch | xclip -selection clipboard  # Копировать в буфер обмена
+speedfetch | xclip -selection clipboard  # Copy to clipboard
 ```
 
-## Особенности программы
+## Program Features
 
-✅ **Быстрота** - написана на C++, запускается моментально
-✅ **Минимальные зависимости** - использует только стандартные Linux утилиты
-✅ **Полнота информации** - собирает основные параметры системы
-✅ **Красивый вывод** - поддерживает цвета и форматирование терминала
-✅ **Легкая расширяемость** - просто добавьте новый ASCII арт!
+✅ **Speed** - written in C++, starts instantly
+✅ **Minimal dependencies** - uses only standard Linux utilities
+✅ **Complete information** - collects main system parameters
+✅ **Beautiful output** - supports colors and terminal formatting
+✅ **Easy extensibility** - just add new ASCII art!
 
-## Решение проблем
+## Troubleshooting
 
-### Программа не компилируется
+### Program doesn't compile
 ```bash
-# Убедитесь, что установлены необходимые пакеты
+# Make sure necessary packages are installed
 sudo apt install build-essential cmake
 
-# Очистите старую сборку
+# Clean old build
 make clean
 make build
 ```
 
-### Неправильно распознается дистрибутив
-Проверьте `/etc/os-release`:
+### Distribution not recognized correctly
+Check `/etc/os-release`:
 ```bash
 cat /etc/os-release
 ```
 
-Если дистрибутив определился неправильно, добавьте проверку в `system_info.cpp`.
+If the distribution was identified incorrectly, add a check in `system_info.cpp`.
 
-### Неправильный вывод информации
-Убедитесь, что на вашей системе работают стандартные команды:
+### Incorrect information output
+Make sure standard commands work on your system:
 ```bash
-uname -r              # Версия ядра
-hostname             # Имя хоста
-whoami               # Текущий пользователь
+uname -r              # Kernel version
+hostname             # Host name
+whoami               # Current user
 ```
 
-## Производительность
+## Performance
 
-SpeedFetch очень быстрая программа:
-- ⚡ Время запуска: < 100ms
-- 💾 Использование памяти: < 1MB
-- 🔧 Без дополнительных зависимостей
+SpeedFetch is a very fast program:
+- ⚡ Startup time: < 100ms
+- 💾 Memory usage: < 1MB
+- 🔧 No additional dependencies
 
-## Лицензия
+## License
 
-MIT License - смотрите LICENSE файл для подробностей
+MIT License - see LICENSE file for details
 
 ---
 
-**Версия:** 1.0  
-**Платформа:** Linux только  
-**Язык:** C++17
+**Version:** 1.0  
+**Platform:** Linux only  
+**Language:** C++17

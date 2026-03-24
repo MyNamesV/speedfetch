@@ -1,54 +1,54 @@
-# 📖 Информация о проекте SpeedFetch
+# 📖 SpeedFetch Project Information
 
-## О проекте
+## About the Project
 
-**SpeedFetch** — это быстрая и минималистичная утилита для вывода информации о Linux системе с красивым ASCII артом дистрибутива.
+**SpeedFetch** is a fast and minimalist utility for displaying Linux system information with beautiful ASCII art of the distribution.
 
-### Чем отличается от других?
+### How it differs from others?
 
-| Функция | SpeedFetch | Neofetch | Fastfetch |
+| Feature | SpeedFetch | Neofetch | Fastfetch |
 |---------|-----------|----------|-----------|
-| Скорость | ⚡ Молниеносный | Медленный | Быстрый |
-| Размер | 🎯 < 200KB | Средний | Средний |
-| Язык | C++ | Bash | C |
-| Минимум зависимостей | ✅ Да | ❌ Нет | ✅ Да |
-| ASCII арты | ✅ Да | ✅ Да | ✅ Да |
+| Speed | ⚡ Lightning fast | Slow | Fast |
+| Size | 🎯 < 200KB | Medium | Medium |
+| Language | C++ | Bash | C |
+| Minimal dependencies | ✅ Yes | ❌ No | ✅ Yes |
+| ASCII arts | ✅ Yes | ✅ Yes | ✅ Yes |
 
-## Для чего это?
+## What is it for?
 
-SpeedFetch идеален для:
-- 📊 Быстрого просмотра информации о системе
-- 🎨 Красивого вывода в терминал (удобно для screenshots)
-- 🚀 Встраивания в другие приложения
-- 📝 Вывода в логи и отчеты
-- 🎓 Изучения программирования на C++
+SpeedFetch is ideal for:
+- 📊 Quick system information overview
+- 🎨 Beautiful terminal output (convenient for screenshots)
+- 🚀 Embedding in other applications
+- 📝 Output to logs and reports
+- 🎓 Learning C++ programming
 
-## Технические характеристики
+## Technical Specifications
 
-- **Язык:** C++17
-- **Компилятор:** GCC 7+ / Clang 5+
-- **ОС:** Linux (только)
-- **Зависимости:** Системные утилиты (uname, hostname, etc.)
-- **Размер бинарника:** ~150-200KB
-- **Время запуска:** < 100ms
+- **Language:** C++17
+- **Compiler:** GCC 7+ / Clang 5+
+- **OS:** Linux (only)
+- **Dependencies:** System utilities (uname, hostname, etc.)
+- **Binary size:** ~150-200KB
+- **Startup time:** < 100ms
 
-## Собираемая информация
+## Collected Information
 
-SpeedFetch собирает следующие данные о системе:
+SpeedFetch collects the following system data:
 
-1. **👤 User@Host** - Текущий пользователь и имя компьютера
-2. **🐧 OS** - Дистрибутив Linux
-3. **🔧 Kernel** - Версия ядра системы
-4. **⚙️ CPU** - Модель процессора
-5. **🧠 RAM** - Использованная/Общая оперативная память
-6. **💾 Disk** - Использованное/Общее место на диске
-7. **⏱️ Uptime** - Время работы системы
-8. **🐚 Shell** - Текущее окружение shell
-9. **🖥️ Terminal** - Эмулятор терминала
+1. **👤 User@Host** - Current user and computer name
+2. **🐧 OS** - Linux distribution
+3. **🔧 Kernel** - System kernel version
+4. **⚙️ CPU** - Processor model
+5. **🧠 RAM** - Used/Total RAM
+6. **💾 Disk** - Used/Total disk space
+7. **⏱️ Uptime** - System uptime
+8. **🐚 Shell** - Current shell environment
+9. **🖥️ Terminal** - Terminal emulator
 
-## Поддерживаемые дистрибутивы
+## Supported Distributions
 
-- ✅ Ubuntu (все варианты)
+- ✅ Ubuntu (all variants)
 - ✅ Fedora
 - ✅ Debian
 - ✅ Arch Linux
@@ -57,53 +57,53 @@ SpeedFetch собирает следующие данные о системе:
 - ✅ CentOS
 - ✅ Elementary OS
 - ✅ Pop!_OS
-- ✅ И другие Linux системы
+- ✅ And other Linux systems
 
-## Файлы проекта
+## Project Files
 
 ```
 speedfetch/
 ├── src/
-│   ├── main.cpp              # Основная программа (UI и вывод)
-│   ├── system_info.h/cpp     # Сбор информации о системе
-│   └── ascii_art.h/cpp       # ASCII арты дистрибутивов
-├── CMakeLists.txt            # Конфигурация CMake
-├── Makefile                  # Make targets для удобства
-├── README.md                 # Основная документация
-├── USAGE.md                  # Руководство пользователя
-├── ASCII_ART_GUIDE.md        # Как добавить новые ASCII арты
-├── build.sh                  # Скрипт для сборки
-└── install.sh                # Скрипт для установки
+│   ├── main.cpp              # Main program (UI and output)
+│   ├── system_info.h/cpp     # System information gathering
+│   └── ascii_art.h/cpp       # Distribution ASCII arts
+├── CMakeLists.txt            # CMake configuration
+├── Makefile                  # Make targets for convenience
+├── README.md                 # Main documentation
+├── USAGE.md                  # User guide
+├── ASCII_ART_GUIDE.md        # How to add new ASCII arts
+├── build.sh                  # Build script
+└── install.sh                # Installation script
 ```
 
-## Как использовать
+## How to Use
 
-### Просто запустить:
+### Just run:
 ```bash
 ./build/speedfetch
 ```
 
-### Установить в систему:
+### Install system-wide:
 ```bash
 make install
-speedfetch  # Где угодно
+speedfetch  # Anywhere
 ```
 
-### Перенаправить в файл:
+### Redirect to file:
 ```bash
 speedfetch > system_info.txt
 ```
 
-## Автор и лицензия
+## Author and License
 
-**Автор:** Созданно с ❤️ для Linux энтузиастов
+**Author:** Created with ❤️ for Linux enthusiasts
 
-**Лицензия:** MIT License
+**License:** MIT License
 
-**Статус:** Активное развитие 🚀
+**Status:** Active development 🚀
 
 ---
 
-**Последнее обновление:** 2026-03-22  
-**Версия:** 1.0  
-**Платформа:** Linux x86_64
+**Last update:** 2026-03-22  
+**Version:** 1.0  
+**Platform:** Linux x86_64

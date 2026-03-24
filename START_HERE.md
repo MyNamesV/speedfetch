@@ -1,56 +1,56 @@
-# 🚀 SpeedFetch - готово к использованию!
+# 🚀 SpeedFetch - Ready to Use!
 
-## ✅ Что создилось?
+## ✅ What Was Created?
 
-Полнофункциональная утилита **speedfetch** на C++, которая выводит красивую информацию о вашей Linux системе.
+A fully functional **speedfetch** utility in C++ that displays beautiful information about your Linux system.
 
-## 📁 Структура проекта
+## 📁 Project Structure
 
 ```
 speedfetch/
-├── src/                    # Исходный код
-│   ├── main.cpp           # Главная программа
-│   ├── system_info.h/cpp  # Сбор информации
-│   └── ascii_art.h/cpp    # ASCII арты (10+ дистрибутивов)
-├── build/                 # Скомпилированный исполняемый файл
-├── CMakeLists.txt         # Конфигурация для CMake
+├── src/                    # Source code
+│   ├── main.cpp           # Main program
+│   ├── system_info.h/cpp  # Information gathering
+│   └── ascii_art.h/cpp    # ASCII arts (10+ distributions)
+├── build/                 # Compiled executable
+├── CMakeLists.txt         # CMake configuration
 ├── Makefile               # Make targets
-├── README.md              # Подробная документация
-├── USAGE.md               # Руководство пользователя
-├── PROJECT_INFO.md        # Информация о проекте
-├── ASCII_ART_GUIDE.md     # Как добавить новые ASCII арты
+├── README.md              # Detailed documentation
+├── USAGE.md               # User guide
+├── PROJECT_INFO.md        # Project information
+├── ASCII_ART_GUIDE.md     # How to add new ASCII arts
 ├── LICENSE                # MIT License
-└── Скрипты для сборки/установки
+└── Build/installation scripts
 ```
 
-## 🎯 Быстрый старт
+## 🎯 Quick Start
 
 ```bash
-# 1. Запустить программу
+# 1. Run the program
 ./build/speedfetch
 
-# 2. Или установить в систему
+# 2. Or install system-wide
 make install
 
-# 3. Потом просто вводить
+# 3. Then just type
 speedfetch
 ```
 
-## 📊 Что показывает?
+## 📊 What It Shows?
 
 ✅ User@Host  
-✅ ОперационFecha система  
-✅ Версия ядра  
-✅ Процессор  
-✅ Оперативная память  
-✅ Место на диске  
-✅ Время работы системы  
-✅ Shell и терминал  
-✅ **Красивый ASCII арт дистрибутива!**
+✅ Operating system  
+✅ Kernel version  
+✅ Processor  
+✅ RAM  
+✅ Disk space  
+✅ System uptime  
+✅ Shell and terminal  
+✅ **Beautiful ASCII art of the distribution!**
 
-## 🎨 Поддержка дистрибутивов
+## 🎨 Supported Distributions
 
-Встроены ASCII арты для:
+Built-in ASCII arts for:
 - Ubuntu
 - Fedora
 - Debian
@@ -60,82 +60,82 @@ speedfetch
 - CentOS
 - Elementary OS
 - Pop!_OS
-- И другие...
+- And others...
 
-## 🛠️ Доступные команды
+## 🛠️ Available Commands
 
 ```bash
-make build      # Собрать проект
-make run        # Собрать и запустить
-make install    # Установить в систему
-make uninstall  # Удалить из системы
-make clean      # Очистить сборку
-make help       # Справка по командам
+make build      # Build the project
+make run        # Build and run
+make install    # Install system-wide
+make uninstall  # Remove from system
+make clean      # Clean build
+make help       # Commands help
 ```
 
-## 📈 Характеристики
+## 📈 Characteristics
 
-- 🚀 **Быстрая** - запускается < 100ms
-- 💾 **Легкая** - ~ 150KB бинарный файл
-- 📚 **Минимум зависимостей** - только C++ и Linux утилиты
-- 🎨 **Красивая** - поддержка цветов в терминале
-- 🔧 **Легко расширяемая** - просто добавьте ASCII арт!
+- 🚀 **Fast** - starts in < 100ms
+- 💾 **Light** - ~ 150KB binary
+- 📚 **Minimal dependencies** - only C++ and Linux utilities
+- 🎨 **Beautiful** - terminal color support
+- 🔧 **Easy to extend** - just add ASCII art!
 
-## 📝 Как расширять?
+## 📝 How to Extend?
 
-Хотите добавить поддержку еще дистрибутива?
+Want to add support for another distribution?
 
-1. Отредактируйте `src/ascii_art.cpp`
-2. Добавьте ваш ASCII арт в карту `arts`
-3. Добавьте проверку в функцию `getDistroType()`
-4. Пересоберите: `make clean && make build`
+1. Edit `src/ascii_art.cpp`
+2. Add your ASCII art to the `arts` map
+3. Add check in `getDistroType()` function
+4. Rebuild: `make clean && make build`
 
-Подробнее смотри `ASCII_ART_GUIDE.md`
+See `ASCII_ART_GUIDE.md` for details
 
-## 💡 Примеры использования
+## 💡 Usage Examples
 
 ```bash
-# Просто вывезти информацию
+# Just display information
 speedfetch
 
-# Сохранить в файл
+# Save to file
 speedfetch > system_info.txt
 
-# Использовать в скриптах
+# Use in scripts
 ./speedfetch | head -5
 
-# Копировать в буфер обмена (если установлен xclip)
+# Copy to clipboard (if xclip is installed)
 speedfetch | xclip -selection clipboard
 ```
 
-## 🔗 Файлы документации
+## 🔗 Documentation Files
 
-- **README.md** - Главная документация
-- **USAGE.md** - Руководство по использованию
-- **PROJECT_INFO.md** - Информация о проекте
-- **ASCII_ART_GUIDE.md** - Как добавить ASCII арты
+- **README.md** - Main documentation
+- **USAGE.md** - Usage guide
+- **PROJECT_INFO.md** - Project information
+- **ASCII_ART_GUIDE.md** - How to add ASCII arts
 - **LICENSE** - MIT License
 
-## 🎓 Для учебы
+## 🎓 For Learning
 
-Этот проект отличный пример:
-- Работы с C++17
-- Чтения системных файлов (`/proc/`, `/etc/`)
-- Запуска системных команд
-- Работы с форматированием вывода
-- Структурирования проекта на CMake
+This project is a great example of:
+- Working with C++17
+- Reading system files (`/proc/`, `/etc/`)
+- Running system commands
+- Working with output formatting
+- Structuring CMake projects
 
-## ⚡ Производительность
+## ⚡ Performance
 
-- **Время запуска:** < 100ms
-- **Использование памяти:** < 1MB
-- **Зависимости:** Системные утилиты (уже установлены)
+- **Startup time:** < 100ms
+- **Memory usage:** < 1MB
+- **Dependencies:** System utilities (already installed)
 
 ---
 
-**Статус:** ✅ Полностью готово к использованию!  
-**Версия:** 1.0  
-**Платформа:** Linux x86_64  
-**Лицензия:** MIT
+**Status:** ✅ Fully ready to use!  
+**Version:** 1.0  
+**Platform:** Linux x86_64  
+**License:** MIT
 
-Наслаждайтесь SpeedFetch! 🎉
+Enjoy SpeedFetch! 🎉

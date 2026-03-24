@@ -22,7 +22,7 @@ std::vector<std::string> getArtLines(const std::string& art) {
     std::istringstream iss(art);
     
     while (std::getline(iss, line)) {
-        // Обрезаем конечные пробелы
+        // Trim trailing spaces
         size_t end = line.find_last_not_of(" \t\r\n");
         if (end != std::string::npos) {
             line = line.substr(0, end + 1);
@@ -33,11 +33,11 @@ std::vector<std::string> getArtLines(const std::string& art) {
     return lines;
 }
 
-// Получить максимальную длину строки арта
+// Get maximum art line length
 int getMaxArtLineLength(const std::vector<std::string>& art_lines) {
     int max_len = 0;
     for (const auto& line : art_lines) {
-        // Считаем длину БЕЗ конечных пробелов
+        // Count length WITHOUT trailing spaces
         size_t len = line.find_last_not_of(" \t\r\n");
         if (len != std::string::npos) {
             len = len + 1;
@@ -48,26 +48,26 @@ int getMaxArtLineLength(const std::vector<std::string>& art_lines) {
             max_len = len;
         }
     }
-    return max_len + 3;  // +3 для небольшого отступа от текста
+    return max_len + 3;  // +3 for small text offset
 }
 
-// Форматирование значения с выделением процентов зеленым
+// Format value with green highlighting for percentages
 std::string formatValue(const std::string& value) {
-    // Регулярное выражение для поиска процентов (число%)
+    // Regular expression to find percentages (number%)
     std::regex percent_regex("(\\d+%)");
     std::string result;
     std::smatch match;
     std::string str = value;
     
     while (std::regex_search(str, match, percent_regex)) {
-        // Добавляем текст до процентов
+        // Add text before percentages
         result += match.prefix().str();
-        // Добавляем процент зеленым цветом
+        // Add percentage in green color
         result += GREEN + match[0].str() + RESET;
-        // Продолжаем поиск в остальной части строки
+        // Continue searching in the remaining part of the string
         str = match.suffix().str();
     }
-    // Добавляем оставшуюся часть строки
+    // Add the remaining part of the string
     result += str;
     
     return result;
@@ -112,7 +112,7 @@ int main(int argc, char* argv[]) {
     std::string art = ASCIIArt::getArt(distro_to_display);
     std::vector<std::string> art_lines = getArtLines(art);
     
-    // Используем фиксированную ширину для всех логотипов (45 символов)
+    // Use fixed width for all logos (45 characters)
     int art_width = 45;
     
     // Display output
@@ -152,7 +152,7 @@ int main(int argc, char* argv[]) {
     for (size_t i = 0; i < max_lines; ++i) {
         // Print ASCII art without color
         if (i < art_lines.size()) {
-            // Используем printf для точного контроля форматирования
+            // Use printf for precise formatting control
             printf("%-*s", art_width, art_lines[i].c_str());
         } else {
             printf("%-*s", art_width, "");
@@ -162,7 +162,7 @@ int main(int argc, char* argv[]) {
         if (i < info_items.size()) {
             const auto& item = info_items[i];
             
-            // Лейбел жирный красный, двоеточие белый, значение белый
+            // Label bold red, colon white, value white
             std::string formatted = formatValue(item.second);
             printf("%s%s%s: %s%s\n", 
                    BOLD_RED.c_str(), 

@@ -1,40 +1,40 @@
 # SpeedFetch - System Information Fetcher
 
-Минималистичная и быстрая программа на C++ для вывода информации о вашей Linux системе с красивым ASCII артом дистрибутива.
+Minimalistic and fast C++ program for displaying your Linux system information with beautiful ASCII art of the distribution.
 
-## 📋 Возможности
+## 📋 Features
 
-- Быстрый вывод информации о системе  
-- Поддержка основных Linux дистрибутивов (Ubuntu, Fedora, Debian, Arch, Manjaro, openSUSE и др.)  
-- Красивый ASCII арт для каждого дистрибутива  
-- Пользователе и hostname
-- Операционной системе
-- Версии ядра
-- Процессоре
-- Оперативной памяти
-- Свободном месте на диске
-- Времени работы системы
-- Shell и терминале
+- Fast system information output
+- Support for major Linux distributions (Ubuntu, Fedora, Debian, Arch, Manjaro, openSUSE, etc.)
+- Beautiful ASCII art for each distribution
+- User and hostname
+- Operating system
+- Kernel version
+- Processor
+- RAM
+- Free disk space
+- System uptime
+- Shell and terminal
 
-## 🛠️ Сборка
+## Building
 
-### Требования:
-- GCC/Clang компилятор с поддержкой C++17
-- CMake 3.10 или выше
-- Linux система
-- make (опционально, но рекомендуется)
+### Requirements:
+- GCC/Clang compiler with C++17 support
+- CMake 3.10 or higher
+- Linux system
+- make (optional, but recommended)
 
-### Быстрая сборка (с Makefile):
+### Quick build (with Makefile):
 
 ```bash
 cd speedfetch
-make build      # Компилирует программу
-make run        # Компилирует и запускает
-make install    # Устанавливает в систему (требует sudo)
-make clean      # Удаляет build директорию
+make build      # Compiles the program
+make run        # Compiles and runs
+make install    # Installs to system (requires sudo)
+make clean      # Removes build directory
 ```
 
-### Ручная сборка (через CMake):
+### Manual build (via CMake):
 
 ```bash
 cd speedfetch
@@ -45,48 +45,48 @@ make
 ./speedfetch
 ```
 
-### Использование скриптов:
+### Using scripts:
 
 ```bash
-# Дать права на выполнение
+# Give execute permissions
 chmod +x build.sh install.sh
 
-# Собрать
+# Build
 ./build.sh
 
-# Установить (требует sudo)
+# Install (requires sudo)
 sudo ./install.sh
 ```
 
-## 🚀 Использование
+## Usage
 
-### Запуск из папки build:
+### Running from build folder:
 ```bash
 ./build/speedfetch
 ```
 
-### После установки в систему:
+### After system installation:
 ```bash
 speedfetch
 ```
 
-Просто запустите программу в любой папке!
+Just run the program in any folder!
 
-## 📁 Структура проекта
+## Project Structure
 
 ```
 speedfetch/
-├── CMakeLists.txt          # Конфигурация CMake
+├── CMakeLists.txt          # CMake configuration
 ├── src/
-│   ├── main.cpp            # Главная программа
-│   ├── system_info.h       # Заголовок для сбора информации
-│   ├── system_info.cpp     # Реализация сбора информации
-│   ├── ascii_art.h         # Заголовок для ASCII артов
-│   └── ascii_art.cpp       # Реализация ASCII артов
-└── README.md               # Этот файл
+│   ├── main.cpp            # Main program
+│   ├── system_info.h       # Header for information gathering
+│   ├── system_info.cpp     # Implementation of information gathering
+│   ├── ascii_art.h         # Header for ASCII arts
+│   └── ascii_art.cpp       # Implementation of ASCII arts
+└── README.md               # This file
 ```
 
-## 🎨 Поддерживаемые дистрибутивы
+## Supported Distributions
 
 - Ubuntu
 - Fedora
@@ -96,16 +96,16 @@ speedfetch/
 - openSUSE
 - CentOS
 - Pop!_OS
-- И другие Linux системы
+- And other Linux systems
 
-## 💡 О программе
+## About the program
 
-SpeedFetch написана на чистом C++ с минимальными зависимостями. Программа использует системные файлы `/proc` и стандартные Linux команды для получения информации о системе.
+SpeedFetch is written in pure C++ with minimal dependencies. The program uses system files `/proc` and standard Linux commands to obtain system information.
 
-## 📝 Лицензия
+## License
 
 GNU GPLv3
 
 ---
 
-**Автор:** MyNameIsV
+**Author:** MyNameIsV
