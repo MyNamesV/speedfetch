@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+
+# Install the binary
+mkdir -p /usr/local/bin
+cp usr/local/bin/speedfetch /usr/local/bin/speedfetch
+chmod +x /usr/local/bin/speedfetch
+
+echo "SpeedFetch installed successfully!"

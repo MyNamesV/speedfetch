@@ -1,0 +1,19 @@
+#!/usr/bin/make -f
+
+build:
+	mkdir -p build
+	cd build && cmake .. && make
+
+install: build
+	mkdir -p debian/speedfetch/usr/local/bin
+	cp build/speedfetch debian/speedfetch/usr/local/bin/
+
+binary-indep:
+
+binary-arch: install
+	dpkg-deb --build debian/speedfetch
+
+binary: binary-arch
+
+clean:
+	rm -rf build debian/speedfetch

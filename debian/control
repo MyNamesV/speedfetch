@@ -1,0 +1,9 @@
+Package: speedfetch
+Version: 1.0-1
+Architecture: amd64
+Maintainer: MyNameIsV <allstalkermak@gmail.com>
+Homepage: https://github.com/MyNamesV/speedfetch
+Description: Fast Linux system information fetcher
+ SpeedFetch is a minimalist and fast C++ utility for displaying
+ Linux system information with beautiful ASCII art of the distribution.
+ Supports multiple Linux distributions with colored terminal output.

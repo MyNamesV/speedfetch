@@ -1,0 +1,8 @@
+speedfetch (1.0-1) focal; urgency=medium
+
+  * Initial release
+  * Fast Linux system information fetcher written in C++
+  * Color-coded ASCII art logos for multiple distributions
+  * Minimal dependencies
+
+ -- MyNameIsV <allstalkermak@gmail.com>  Mon, 24 Mar 2026 12:00:00 +0000
