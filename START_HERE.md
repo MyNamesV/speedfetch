@@ -1,10 +1,10 @@
-# 🚀 SpeedFetch - Ready to Use!
+# SpeedFetch - Ready to Use!
 
-## ✅ What Was Created?
+## What Was Created?
 
 A fully functional **speedfetch** utility in C++ that displays beautiful information about your Linux system.
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 speedfetch/
@@ -23,7 +23,7 @@ speedfetch/
 └── Build/installation scripts
 ```
 
-## 🎯 Quick Start
+## Quick Start
 
 ```bash
 # 1. Run the program
@@ -36,19 +36,19 @@ make install
 speedfetch
 ```
 
-## 📊 What It Shows?
+## What It Shows?
 
-✅ User@Host  
-✅ Operating system  
-✅ Kernel version  
-✅ Processor  
-✅ RAM  
-✅ Disk space  
-✅ System uptime  
-✅ Shell and terminal  
-✅ **Beautiful ASCII art of the distribution!**
+User@Host  
+Operating system  
+Kernel version  
+Processor  
+RAM  
+Disk space  
+System uptime  
+Shell and terminal  
+**Beautiful ASCII art of the distribution!**
 
-## 🎨 Supported Distributions
+## Supported Distributions
 
 Built-in ASCII arts for:
 - Ubuntu
@@ -62,7 +62,7 @@ Built-in ASCII arts for:
 - Pop!_OS
 - And others...
 
-## 🛠️ Available Commands
+## Available Commands
 
 ```bash
 make build      # Build the project
@@ -73,15 +73,15 @@ make clean      # Clean build
 make help       # Commands help
 ```
 
-## 📈 Characteristics
+## Characteristics
 
-- 🚀 **Fast** - starts in < 100ms
-- 💾 **Light** - ~ 150KB binary
-- 📚 **Minimal dependencies** - only C++ and Linux utilities
-- 🎨 **Beautiful** - terminal color support
-- 🔧 **Easy to extend** - just add ASCII art!
+- **Fast** - starts in < 100ms
+- **Light** - ~ 150KB binary
+- **Minimal dependencies** - only C++ and Linux utilities
+- **Beautiful** - terminal color support
+- **Easy to extend** - just add ASCII art!
 
-## 📝 How to Extend?
+## How to Extend?
 
 Want to add support for another distribution?
 
@@ -92,7 +92,7 @@ Want to add support for another distribution?
 
 See `ASCII_ART_GUIDE.md` for details
 
-## 💡 Usage Examples
+## Usage Examples
 
 ```bash
 # Just display information
@@ -108,7 +108,7 @@ speedfetch > system_info.txt
 speedfetch | xclip -selection clipboard
 ```
 
-## 🔗 Documentation Files
+## Documentation Files
 
 - **README.md** - Main documentation
 - **USAGE.md** - Usage guide
@@ -116,7 +116,7 @@ speedfetch | xclip -selection clipboard
 - **ASCII_ART_GUIDE.md** - How to add ASCII arts
 - **LICENSE** - MIT License
 
-## 🎓 For Learning
+## For Learning
 
 This project is a great example of:
 - Working with C++17
@@ -125,7 +125,7 @@ This project is a great example of:
 - Working with output formatting
 - Structuring CMake projects
 
-## ⚡ Performance
+## Performance
 
 - **Startup time:** < 100ms
 - **Memory usage:** < 1MB
@@ -133,9 +133,9 @@ This project is a great example of:
 
 ---
 
-**Status:** ✅ Fully ready to use!  
+**Status:** Fully ready to use!  
 **Version:** 1.0  
 **Platform:** Linux x86_64  
-**License:** MIT
+**License:** GPL
 
-Enjoy SpeedFetch! 🎉
+Enjoy SpeedFetch!
