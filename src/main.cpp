@@ -38,18 +38,47 @@ std::vector<std::string> getArtLines(const std::string& art) {
 int getMaxArtLineLength(const std::vector<std::string>& art_lines) {
     int max_len = 0;
     for (const auto& line : art_lines) {
-        // Count length WITHOUT trailing spaces
-        size_t len = line.find_last_not_of(" \t\r\n");
-        if (len != std::string::npos) {
-            len = len + 1;
-        } else {
-            len = 0;
+        // Count length WITHOUT ANSI escape codes
+        int visible_len = 0;
+        size_t i = 0;
+        while (i < line.length()) {
+            // Check for ANSI escape sequence
+            if (line[i] == '\033' && i + 1 < line.length() && line[i + 1] == '[') {
+                // Skip until 'm'
+                while (i < line.length() && line[i] != 'm') {
+                    i++;
+                }
+                if (i < line.length()) i++;  // Skip the 'm'
+            } else {
+                visible_len++;
+                i++;
+            }
         }
-        if (len > max_len) {
-            max_len = len;
+        if (visible_len > max_len) {
+            max_len = visible_len;
         }
     }
     return max_len + 3;  // +3 for small text offset
+}
+
+// Calculate visible length (excluding ANSI codes)
+int getVisibleLength(const std::string& str) {
+    int visible_len = 0;
+    size_t i = 0;
+    while (i < str.length()) {
+        // Check for ANSI escape sequence
+        if (str[i] == '\033' && i + 1 < str.length() && str[i + 1] == '[') {
+            // Skip until 'm'
+            while (i < str.length() && str[i] != 'm') {
+                i++;
+            }
+            if (i < str.length()) i++;  // Skip the 'm'
+        } else {
+            visible_len++;
+            i++;
+        }
+    }
+    return visible_len;
 }
 
 // Format value with green highlighting for percentages
@@ -114,6 +143,13 @@ int main(int argc, char* argv[]) {
     
     // Get ASCII art for the distro
     std::string art = ASCIIArt::getArt(distro_to_display);
+    
+    // Get logo info and colorize the art
+    const LogoInfo* logo_info = ASCIIArt::getLogoInfo(distro_to_display);
+    if (logo_info) {
+        art = ASCIIArt::colorizeArt(art, logo_info->colors);
+    }
+    
     std::vector<std::string> art_lines = getArtLines(art);
     
     // Use fixed width for all logos (45 characters)
@@ -199,12 +235,26 @@ int main(int argc, char* argv[]) {
     size_t max_lines = std::max(art_lines.size(), info_items.size());
     
     for (size_t i = 0; i < max_lines; ++i) {
-        // Print ASCII art without color
+        // Print ASCII art with color
         if (i < art_lines.size()) {
-            // Use printf for precise formatting control
-            printf("%-*s", art_width, art_lines[i].c_str());
+            // Get the visible (non-ANSI) length
+            int visible_len = getVisibleLength(art_lines[i]);
+            int padding = art_width - visible_len;
+            
+            // Print the art line with ANSI codes
+            std::cout << art_lines[i];
+            
+            // Add padding to align info text
+            if (padding > 0) {
+                for (int p = 0; p < padding; ++p) {
+                    std::cout << " ";
+                }
+            }
         } else {
-            printf("%-*s", art_width, "");
+            // Print empty space if no more art lines
+            for (int j = 0; j < art_width; ++j) {
+                std::cout << " ";
+            }
         }
         
         // Print system info with bold red labels and white/green values
