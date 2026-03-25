@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <algorithm>
 #include "strings.h"
 #include "file.h"
 #include "exec.h"
@@ -30,8 +31,31 @@ namespace detect::os {
         info.id_like = core::file::getKeyValue(content, "ID_LIKE");
         info.variant = core::file::getKeyValue(content, "VARIANT");
 
+        // Fallback to PRETTY_NAME if NAME is empty
         if (info.name.empty()) {
-            info.name = info.pretty_name.empty() ? "Linux" : info.pretty_name;
+            if (!info.pretty_name.empty()) {
+                info.name = info.pretty_name;
+            } else if (!info.id.empty()) {
+                info.name = info.id;
+            } else {
+                info.name = "Linux";
+            }
+        }
+
+        // Special handling for Linux Mint and variants
+        std::string lower_name = info.name;
+        std::transform(lower_name.begin(), lower_name.end(), lower_name.begin(), ::tolower);
+        
+        if (lower_name.find("mint") != std::string::npos) {
+            // Ensure proper casing for Linux Mint
+            if (info.name.find("Linux Mint") == std::string::npos && 
+                info.name.find("linux mint") == std::string::npos) {
+                info.name = "Linux Mint";
+            }
+            // Add version if available
+            if (!info.version.empty()) {
+                info.name += " " + info.version;
+            }
         }
 
         return info;

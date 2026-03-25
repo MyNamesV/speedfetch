@@ -4633,7 +4633,7 @@ $3\/$1-____$3\/)",
 $2    \)",
         {COLOR_BLUE, COLOR_WHITE}
     }},
-    {"linuxmint", {
+    {"mint", {
         R"(            $2_.-ppOOOOOOqq-._
          .oOOOOPPPPPPPPPPOOOOo.
       .oOOOO$1.=oOOOOOOOOOOo=.$2OOOOo.
@@ -4656,7 +4656,7 @@ $2    \)",
 )",
         {COLOR_GREEN, COLOR_WHITE}
     }},
-    {"linuxmint2", {
+    {"mint2", {
         R"(             $2...-:::::-...
           .-MMMMMMMMMMMMMMM-.
       .-MMMM$1`..-:::::::-..`$2MMMM-.
@@ -4678,7 +4678,7 @@ $2    \)",
                ``-:::::-``)",
         {COLOR_GREEN, COLOR_WHITE}
     }},
-    {"linuxmint_old", {
+    {"mint_old", {
         R"(MMMMMMMMMMMMMMMMMMMMMMMMMmds+.
 MMm----::-://////////////oymNMd+`
 MMd      $2/++                $1-sNMd:
@@ -4697,7 +4697,7 @@ ddddMMh  $2dMM   :hNMNMNhNMNMNh: $1`NMm
           .MMMMMMMMMMMMMMMMMMM)",
         {COLOR_GREEN, COLOR_WHITE}
     }},
-    {"linuxmint_small", {
+    {"mint_small", {
         R"( __________
 |_          \
   | $2| _____ $1|
