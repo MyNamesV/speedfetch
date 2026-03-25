@@ -1,4 +1,4 @@
-#include "system_info.h"
+#include "system.h"
 #include "ascii_art.h"
 #include "config.h"
 #include <iostream>
@@ -107,11 +107,11 @@ int main(int argc, char* argv[]) {
     // Load configuration
     Config::load();
     
-    // Get system information
-    SystemInfo info = SystemInfoGatherer::gather();
+    // Get system information using new unified gatherer
+    SystemInformation info = SystemInfoGatherer::gatherAll();
     
     // Parse command line arguments
-    std::string distro_to_display = info.distro;
+    std::string distro_to_display = info.os_name;
     
     for (int i = 1; i < argc; ++i) {
         std::string arg = argv[i];
@@ -160,16 +160,17 @@ int main(int argc, char* argv[]) {
     
     // Prepare info items
     std::vector<std::pair<std::string, std::string>> all_items = {
-        {"User", info.user + "@" + info.host},
-        {"OS", info.distro},
-        {"Host", info.host},
+        {"User", info.user},
+        {"Hostname", info.hostname},
+        {"OS", info.os_name},
         {"Kernel", info.kernel},
+        {"Arch", info.arch},
         {"Uptime", info.uptime},
         {"Packages", info.packages},
         {"Shell", info.shell},
         {"Display", info.display},
-        {"DE", info.de},
-        {"WM", info.wm},
+        {"DE", info.desktop_env},
+        {"WM", info.window_manager},
         {"WM Theme", info.wm_theme},
         {"Theme", info.theme},
         {"Icons", info.icons},
@@ -179,20 +180,22 @@ int main(int argc, char* argv[]) {
         {"Terminal Font", info.terminal_font},
         {"CPU", info.cpu},
         {"GPU", info.gpu},
-        {"Memory", info.ram},
+        {"Memory", info.memory},
         {"Swap", info.swap},
-        {"Disk (/)", info.disk},
-        {"Local IP", info.ip_address},
-        {"Locale", info.locale}
+        {"Disk", info.disk},
+        {"IP Address", info.ip_address},
+        {"Locale", info.locale},
+        {"Battery", info.battery}
     };
     
     // Filter items based on config
     std::vector<std::pair<std::string, std::string>> info_items;
     std::vector<std::pair<std::string, std::string>> config_map = {
         {"User", "user"},
+        {"Hostname", "hostname"},
         {"OS", "os"},
-        {"Host", "host"},
         {"Kernel", "kernel"},
+        {"Arch", "arch"},
         {"Uptime", "uptime"},
         {"Packages", "packages"},
         {"Shell", "shell"},
@@ -210,9 +213,10 @@ int main(int argc, char* argv[]) {
         {"GPU", "gpu"},
         {"Memory", "memory"},
         {"Swap", "swap"},
-        {"Disk (/)", "disk"},
-        {"Local IP", "local_ip"},
-        {"Locale", "locale"}
+        {"Disk", "disk"},
+        {"IP Address", "ip_address"},
+        {"Locale", "locale"},
+        {"Battery", "battery"}
     };
     
     for (const auto& item : all_items) {
@@ -227,7 +231,12 @@ int main(int argc, char* argv[]) {
         
         // Check if enabled in config
         if (config_key.empty() || Config::isEnabled(config_key)) {
-            info_items.push_back(item);
+            // Replace empty values with N/A
+            std::pair<std::string, std::string> display_item = item;
+            if (display_item.second.empty()) {
+                display_item.second = "N/A";
+            }
+            info_items.push_back(display_item);
         }
     }
     

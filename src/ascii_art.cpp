@@ -2340,7 +2340,7 @@ $5⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠙⠛⠀⠀⠀⠀⠀
     }},
     {"debian", {
         R"(        $2_,met$$$$$$$$$$gg.
-     ,g$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$P.
+     ,g$$$$$$$$$$$$$$$$$$$$$$
    ,g$$$$P""       """Y$$$$.".
   ,$$$$P'              `$$$$$$.
 ',$$$$P       ,ggs.     `$$$$b:
@@ -9818,9 +9818,19 @@ std::string ASCIIArt::getDistroType(const std::string& distro_name) {
 
 // Get art by distro name
 std::string ASCIIArt::getArt(const std::string& distro) {
+    // First, try to find exact logo name (case-insensitive)
+    std::string lower = distro;
+    std::transform(lower.begin(), lower.end(), lower.begin(), ::tolower);
+    
+    auto it = arts.find(lower);
+    if (it != arts.end()) {
+        return it->second.art;
+    }
+    
+    // If exact name not found, use distro type detection
     std::string distro_type = getDistroType(distro);
     
-    auto it = arts.find(distro_type);
+    it = arts.find(distro_type);
     if (it != arts.end()) {
         return it->second.art;
     }
@@ -9836,9 +9846,19 @@ std::string ASCIIArt::getArt(const std::string& distro) {
 
 // Get logo info with colors
 const LogoInfo* ASCIIArt::getLogoInfo(const std::string& distro) {
+    // First, try to find exact logo name (case-insensitive)
+    std::string lower = distro;
+    std::transform(lower.begin(), lower.end(), lower.begin(), ::tolower);
+    
+    auto it = arts.find(lower);
+    if (it != arts.end()) {
+        return &it->second;
+    }
+    
+    // If exact name not found, use distro type detection
     std::string distro_type = getDistroType(distro);
     
-    auto it = arts.find(distro_type);
+    it = arts.find(distro_type);
     if (it != arts.end()) {
         return &it->second;
     }

@@ -17,9 +17,10 @@ void Config::createDefaultConfig() {
     // Create default config with all items enabled
     config = {
         {"user", true},
+        {"hostname", true},
         {"os", true},
-        {"host", true},
         {"kernel", true},
+        {"arch", true},
         {"uptime", true},
         {"packages", true},
         {"shell", true},
@@ -38,8 +39,9 @@ void Config::createDefaultConfig() {
         {"memory", true},
         {"swap", true},
         {"disk", true},
-        {"local_ip", true},
-        {"locale", true}
+        {"ip_address", true},
+        {"locale", true},
+        {"battery", true}
     };
 }
 

@@ -1,8 +1,9 @@
 {
   "user": true,
+  "hostname": true,
   "os": true,
-  "host": true,
   "kernel": true,
+  "arch": true,
   "uptime": true,
   "packages": true,
   "shell": true,
@@ -17,10 +18,11 @@
   "terminal": true,
   "terminal_font": true,
   "cpu": true,
-  "gpu": false,
+  "gpu": true,
   "memory": true,
   "swap": true,
   "disk": true,
-  "local_ip": false,
-  "locale": false
+  "ip_address": true,
+  "locale": true,
+  "battery": true
 }
