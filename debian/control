@@ -1,9 +1,24 @@
-Package: speedfetch
-Version: 1.0-1
-Architecture: amd64
+Source: speedfetch
+Section: utils
+Priority: optional
 Maintainer: MyNameIsV <allstalkermak@gmail.com>
+Build-Depends: debhelper-compat (= 13), cmake, g++, make
+Standards-Version: 4.5.1
 Homepage: https://github.com/MyNamesV/speedfetch
-Description: Fast Linux system information fetcher
+
+Package: speedfetch
+Version: 1.1-1
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Fast Linux system information fetcher with 500+ distro logos
  SpeedFetch is a minimalist and fast C++ utility for displaying
  Linux system information with beautiful ASCII art of the distribution.
- Supports multiple Linux distributions with colored terminal output.
+ Supports 500+ Linux distributions with colored terminal output.
+ .
+ Features:
+  - Display 26+ system information fields
+  - 500+ distribution logos with color support
+  - Fast hardware and software detection
+  - Customizable configuration
+  - Linux Mint and all major distros support
+  - Font, theme, cursor, and terminal detection

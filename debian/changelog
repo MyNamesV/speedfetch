@@ -1,3 +1,16 @@
+speedfetch (1.1-1) focal; urgency=medium
+
+  * Add 26+ system information fields (user, display, font, cursor, etc.)
+  * Improve Linux Mint detection and proper branding
+  * Enhance font/theme/icons detection with gsettings priority
+  * Add swap memory information
+  * Support for terminal font detection
+  * Refactor to modular detection system architecture
+  * Remove legacy system_info code
+  * Fix 500+ distro logo support with proper colors
+
+ -- MyNameIsV <allstalkermak@gmail.com>  Tue, 25 Mar 2026 14:00:00 +0000
+
 speedfetch (1.0-1) focal; urgency=medium
 
   * Initial release
