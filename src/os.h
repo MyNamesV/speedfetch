@@ -125,15 +125,36 @@ namespace detect::os {
     }
 
     inline std::string getWMTheme() {
-        std::string theme = core::exec::exec("dconf read /org/gnome/desktop/interface/gtk-theme 2>/dev/null | tr -d \"'\"");
-        if (theme.empty() || theme == "N/A") {
-            theme = core::exec::exec("kreadconfig5 --file kdeglobals --group General --key ColorScheme 2>/dev/null");
+        // Try gsettings first
+        std::string theme = core::exec::exec("gsettings get org.gnome.desktop.interface gtk-theme 2>/dev/null | tr -d \"'\"");
+        if (!theme.empty() && theme != "N/A") {
+            return theme;
         }
-        return theme.empty() ? "N/A" : theme;
+        
+        // Fallback to dconf
+        theme = core::exec::exec("dconf read /org/gnome/desktop/interface/gtk-theme 2>/dev/null | tr -d \"'\"");
+        if (!theme.empty() && theme != "N/A") {
+            return theme;
+        }
+        
+        // Try KDE
+        theme = core::exec::exec("kreadconfig5 --file kdeglobals --group General --key ColorScheme 2>/dev/null");
+        if (!theme.empty() && theme != "N/A") {
+            return theme;
+        }
+        
+        return "N/A";
     }
 
     inline std::string getTheme() {
-        std::string theme = core::exec::exec("dconf read /org/gnome/desktop/interface/gtk-theme 2>/dev/null | tr -d \"'\"");
+        // Try gsettings first
+        std::string theme = core::exec::exec("gsettings get org.gnome.desktop.interface gtk-theme 2>/dev/null | tr -d \"'\"");
+        if (!theme.empty() && theme != "N/A") {
+            return theme + " [GTK]";
+        }
+        
+        // Fallback to dconf
+        theme = core::exec::exec("dconf read /org/gnome/desktop/interface/gtk-theme 2>/dev/null | tr -d \"'\"");
         if (!theme.empty() && theme != "N/A") {
             return theme + " [GTK]";
         }
@@ -147,7 +168,14 @@ namespace detect::os {
     }
 
     inline std::string getIcons() {
-        std::string icons = core::exec::exec("dconf read /org/gnome/desktop/interface/icon-theme 2>/dev/null | tr -d \"'\"");
+        // Try gsettings first
+        std::string icons = core::exec::exec("gsettings get org.gnome.desktop.interface icon-theme 2>/dev/null | tr -d \"'\"");
+        if (!icons.empty() && icons != "N/A") {
+            return icons + " [GTK]";
+        }
+        
+        // Fallback to dconf
+        icons = core::exec::exec("dconf read /org/gnome/desktop/interface/icon-theme 2>/dev/null | tr -d \"'\"");
         if (!icons.empty() && icons != "N/A") {
             return icons + " [GTK]";
         }
@@ -161,11 +189,19 @@ namespace detect::os {
     }
 
     inline std::string getFont() {
-        std::string font = core::exec::exec("dconf read /org/gnome/desktop/interface/font-name 2>/dev/null | tr -d \"'\"");
+        // Try gsettings first (more reliable)
+        std::string font = core::exec::exec("gsettings get org.gnome.desktop.interface font-name 2>/dev/null | tr -d \"'\"");
         if (!font.empty() && font != "N/A") {
             return font + " [GTK]";
         }
         
+        // Fallback to dconf
+        font = core::exec::exec("dconf read /org/gnome/desktop/interface/font-name 2>/dev/null | tr -d \"'\"");
+        if (!font.empty() && font != "N/A") {
+            return font + " [GTK]";
+        }
+        
+        // Try KDE
         std::string kde_font = core::exec::exec("kreadconfig5 --file kdeglobals --group General --key font 2>/dev/null");
         if (!kde_font.empty() && kde_font != "N/A") {
             return kde_font + " [KDE]";
@@ -175,11 +211,21 @@ namespace detect::os {
     }
 
     inline std::string getCursor() {
-        std::string cursor = core::exec::exec("dconf read /org/gnome/desktop/interface/cursor-theme 2>/dev/null | tr -d \"'\"");
+        // Try gsettings first
+        std::string cursor = core::exec::exec("gsettings get org.gnome.desktop.interface cursor-theme 2>/dev/null | tr -d \"'\"");
+        if (cursor.empty() || cursor == "N/A") {
+            // Fallback to dconf
+            cursor = core::exec::exec("dconf read /org/gnome/desktop/interface/cursor-theme 2>/dev/null | tr -d \"'\"");
+        }
+        
         if (!cursor.empty() && cursor != "N/A") {
-            std::string size = core::exec::exec("dconf read /org/gnome/desktop/interface/cursor-size 2>/dev/null");
+            std::string size = core::exec::exec("gsettings get org.gnome.desktop.interface cursor-size 2>/dev/null");
+            if (size.empty() || size == "N/A") {
+                size = core::exec::exec("dconf read /org/gnome/desktop/interface/cursor-size 2>/dev/null");
+            }
+            
             if (!size.empty() && size != "N/A") {
-                return cursor + " (" + size + "px)";
+                return cursor + " (" + size + ")";
             }
             return cursor;
         }
